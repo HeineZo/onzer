@@ -78,4 +78,21 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+  h1 {
+    @apply text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  section {
+    @apply container flex flex-col h-screen gap-16 py-8 md:py-10;
+  }
+
+  p {
+    @apply text-lg text-muted-foreground;
+  }
+
 }
+

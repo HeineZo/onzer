@@ -1,0 +1,137 @@
+[{
+    "titre": "Au DD",
+    "artistes": [
+      {
+        "nom": "PNL",
+        "pays": "France"
+      }
+    ],
+    "pochetteAlbum": "https://i.scdn.co/image/ab67616d0000b273f1d9d9871a2d21cc343166f3",
+    "duree": 245,
+    "genres": ["rap", "hip-hop"],
+    "pays": "France",
+    "dateSortie": "2021-05-10"
+  },
+  {
+    "titre": "Bande Organisée",
+    "artistes": [
+      {
+        "nom": "Jul",
+        "pays": "France"
+      },
+      {
+        "nom": "Sch",
+        "pays": "France"
+      },
+      {
+        "nom": "Naps",
+        "pays": "France"
+      },
+      {
+        "nom": "Kofs",
+        "pays": "France"
+      },
+      {
+        "nom": "Elams",
+        "pays": "France"
+      },
+      {
+        "nom": "Solda",
+        "pays": "France"
+      }
+    ],
+    "pochetteAlbum": "https://i.scdn.co/image/ab67616d0000b27395e2527023061d088736ed3d",
+    "duree": 387,
+    "genres": ["rap", "hip-hop"],
+    "pays": "France",
+    "dateSortie": "2020-07-01"
+  },
+  {
+    "titre": "Validé",
+    "artistes": [
+      {
+        "nom": "Médine",
+        "pays": "France"
+      }
+    ],
+    "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5eb791b1ecfe6f3101115430fb5",
+    "duree": 206,
+    "genres": ["rap", "hip-hop"],
+    "pays": "France",
+    "dateSortie": "2021-01-15"
+  },
+  {
+    "titre": "Mula",
+    "artistes": [
+      {
+        "nom": "Dadju",
+        "pays": "France"
+      }
+    ],
+    "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5ebcaf2416ef3892072fe428910",
+    "duree": 253,
+    "genres": ["rap", "R&B"],
+    "pays": "France",
+    "dateSortie": "2022-09-02"
+  },
+  {
+    "titre": "Médicament",
+    "artistes": [
+      {
+        "nom": "Ninho",
+        "pays": "France"
+      }
+    ],
+    "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5eb0910ff09d3b54b114d233aa3",
+    "duree": 191,
+    "genres": ["rap", "hip-hop"],
+    "pays": "France",
+    "dateSortie": "2022-03-18"
+  },
+  {
+    "titre": "N'y pense plus",
+    "artistes": [
+      {
+        "nom": "Koba LaD",
+        "pays": "France"
+      }
+    ],
+    "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5ebe697a7ddf7af3a306428fa73",
+    "duree": 240,
+    "genres": ["rap", "hip-hop"],
+    "pays": "France",
+    "dateSortie": "2023-02-05"
+  },
+  {
+    "titre": "Schéma",
+    "artistes": [
+      {
+        "nom": "SCH",
+        "pays": "France"
+      }
+    ],
+    "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5eb5ea827dbd0659ea8ec3d6171",
+    "duree": 214,
+    "genres": ["rap", "hip-hop"],
+    "pays": "France",
+    "dateSortie": "2022-11-24"
+  },
+  {
+    "titre": "Polo & Pan",
+    "artistes": [
+      {
+        "nom": "Lous and The Yakuza",
+        "pays": "France"
+      },
+      {
+        "nom": "Hamza",
+        "pays": "France"
+      }
+    ],
+    "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5ebb9d9f3513bdc687cca7a6734",
+    "duree": 198,
+    "genres": ["rap", "electro"],
+    "pays": "France",
+    "dateSortie": "2023-05-02"
+  }              
+]

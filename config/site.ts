@@ -1,18 +1,23 @@
 export type SiteConfig = typeof siteConfig
 
+
 export const siteConfig = {
-  name: "Next.js",
+  name: "Onzer",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "Toute la musique avec une heure de retard",
   mainNav: [
     {
-      title: "Home",
-      href: "/",
+      title: "Explorer",
+      href: "/musique",
+    },
+    {
+      title: "Mes playlists",
+      href: "/playlist",
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
     github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
   },
+  baseUrl: "http://127.0.0.1:3000"
 }
+
