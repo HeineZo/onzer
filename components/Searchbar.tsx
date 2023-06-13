@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
+import { Search } from "lucide-react"
 
 import {
   Select,
@@ -12,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+import { buttonVariants } from "./ui/button"
 import { Input } from "./ui/input"
 
 const findBy = [
@@ -41,7 +43,7 @@ export default function Searchbar() {
   const [filter, setFilter] = useState("musique")
 
   return (
-    <div className="flex ">
+    <div className="flex">
       <Select
         defaultValue="musique"
         onValueChange={(newFilter) => setFilter(newFilter)}

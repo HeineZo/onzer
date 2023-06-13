@@ -3,9 +3,19 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
+    serverActions: true
   },
   images: {
-    domains: ['localhost', 'i.scdn.co'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**",
+      }
+    ],
 }
 }
 

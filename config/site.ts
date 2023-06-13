@@ -16,7 +16,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/shadcn/ui",
+    github: "https://github.com/HeineZo/onzer",
   },
   baseUrl: "http://127.0.0.1:3000"
 }

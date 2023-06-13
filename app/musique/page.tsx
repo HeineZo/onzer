@@ -24,11 +24,11 @@ const getMusics = async () => {
   return res.json()
 }
 
-interface ExplorerProps {
+interface MusiquesProps {
   searchParams: { id: string }
 }
 
-export default async function Explorer({ searchParams }: ExplorerProps) {
+export default async function Musiques({ searchParams }: MusiquesProps) {
   const { musics } = await getMusics()
 
   return (

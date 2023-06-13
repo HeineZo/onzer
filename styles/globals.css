@@ -94,5 +94,9 @@
     @apply text-lg text-muted-foreground;
   }
 
+  .animate {
+    @apply transition-all ease-in-out duration-150;
+  }
+
 }
 

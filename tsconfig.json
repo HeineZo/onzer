@@ -24,6 +24,6 @@
     ],
     "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/mongo/index.js", "lib/mongo/index.js", "lib/mongo/playlist/playlist.js", "lib/mongo/playlist/playlist.js"],
   "exclude": ["node_modules"]
 }

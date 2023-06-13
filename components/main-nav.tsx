@@ -3,8 +3,8 @@
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import LogoDark from "@/public/onzer_black.svg"
-import LogoWhite from "@/public/onzer_white.svg"
+import LogoDark from "@/public/onzer_black.png"
+import LogoWhite from "@/public/onzer_white.png"
 import { useTheme } from "next-themes"
 
 import { NavItem } from "@/types/nav"

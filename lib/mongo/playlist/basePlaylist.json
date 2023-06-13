@@ -1,0 +1,34 @@
+[
+  {
+    "titre": "Party Explosive",
+    "description": "La playlist ultime pour faire la fête !",
+    "createur": "DJ Groovy",
+    "duree": 120,
+    "musiques": [
+      "6486d2f92c4c3698f82c7b2d",
+      "6486d2f92c4c3698f82c7b2e",
+      "6486d2f92c4c3698f82c7b2f"
+    ]
+  },
+  {
+    "titre": "Chill Vibes",
+    "description": "Détendez-vous avec cette sélection de morceaux apaisants.",
+    "createur": "RelaxationMaster",
+    "duree": 90,
+    "musiques": [
+      "6486d2f92c4c3698f82c7b2c",
+      "6486d2f92c4c3698f82c7b30",
+      "6486d2f92c4c3698f82c7b31"
+    ]
+  },
+  {
+    "titre": "Rockin' Classics",
+    "description": "Les incontournables du rock qui vous feront vibrer !",
+    "createur": "RockStar89",
+    "duree": 180,
+    "musiques": [
+      "6486d2f92c4c3698f82c7b32",
+      "6486d2f92c4c3698f82c7b33"
+    ]
+  }
+]
