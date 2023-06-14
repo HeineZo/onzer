@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/site"
 import React from "react"
-import PlaylistRow from "./components/PlaylistRow"
+import PlaylistCard from "./components/PlaylistCard"
 import AddPlaylist from "./components/AddPlaylist"
 
 const getPlaylists = async () => {
@@ -14,7 +14,7 @@ const getPlaylists = async () => {
   return res.json()
 }
 
-export default async function Playlists() {
+export default async function PlaylistsHome() {
   const { playlists } = await getPlaylists()
 
   return (
@@ -23,7 +23,7 @@ export default async function Playlists() {
       {playlists?.length ? (
         <div className="flex gap-12 flex-wrap">
           {playlists?.map((playlist: any) => (
-            <PlaylistRow key={playlist._id} playlist={playlist} />
+            <PlaylistCard key={playlist._id} playlist={playlist} />
           ))}
           <AddPlaylist />
         </div>

@@ -52,26 +52,26 @@ L'interface de l'application sera disponible à l'addresse [http://localhost:300
 ## ✨ Todo list
 - [x]  Faire la connexion entre MongoDB et NextJS  
 - [x]  Créer des données de base pour les musiques
-- [ ]  Créer des données de base pour les playlists
+- [x]  Créer des données de base pour les playlists
 - [x]  Lister toutes les musiques de la base de données
 - [x]  Récupérer les données d'une musique
-- [ ]  Ajouter une musique
-- [ ]  Modifier une musique
-- [ ]  Supprimer une musique
-- [ ]  Lister toutes les playlists
-- [ ]  Récupérer les données d'une playlist
+- [x]  Ajouter une musique
+- [x]  Modifier une musique
+- [x]  Supprimer une musique
+- [x]  Lister toutes les playlists
+- [x]  Récupérer les données d'une playlist
 - [ ]  Ajouter une musique à une playlist
-- [ ]  Créer une playlist
+- [x]  Créer une playlist
 - [ ]  Modifier une playlist
 - [ ]  Supprimer une playlist
-
+- [ ]  Récupérer l'image d'une musique automatiquement en fonction de son titre
+- [ ]  Rechercher une musique ou une playlist à partir de critères
 
 
 
 
 ---
-\
-Crée par [@heinezo](https://github.com/HeineZo) [@elucas0](https://github.com/elucas0)
+Imaginé et développé par [@heinezo](https://github.com/HeineZo) & [@elucas0](https://github.com/elucas0)
 
 ---
 

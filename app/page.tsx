@@ -7,7 +7,7 @@ import { getAllMusic } from "@/lib/mongo/musique/music"
 import { buttonVariants } from "@/components/ui/button"
 
 const getMusic = async () => {
-  const res = await fetch(`${siteConfig.baseUrl}/api/music`, {
+  const res = await fetch(`${siteConfig.baseUrl}/api/musique`, {
     cache: "no-store",
   })
   if (!res.ok) {

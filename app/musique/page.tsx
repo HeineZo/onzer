@@ -14,7 +14,7 @@ import MusicDetails from "./components/MusicDetails"
 import Loading from "../loading"
 
 const getMusics = async () => {
-  const res = await fetch(`${siteConfig.baseUrl}/api/music`, {
+  const res = await fetch(`${siteConfig.baseUrl}/api/musique`, {
     cache: "no-store",
   })
   if (!res.ok) {
