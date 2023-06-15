@@ -1,5 +1,7 @@
-export async function removeMusic(id: string, musicIds: string[]) {
-  "use server"
+"use server"
 
-  console.log(id, musicIds)
+import { removeMusicFromPlaylist } from "@/lib/mongo/playlist/playlist"
+
+export async function removeMusic(id: string, musicIds: string[]) {
+  return removeMusicFromPlaylist(id, musicIds)
 }

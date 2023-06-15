@@ -9,6 +9,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 
+import { Musique } from "@/types/music"
 import {
   Table,
   TableBody,
@@ -17,22 +18,26 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { removeMusic } from "@/app/playlist/[id]/actions"
 
 import { Button } from "./ui/button"
-import { Musique } from "@/types/music"
+import { useToast } from "./ui/use-toast"
+
 // import { removeMusic } from "@/app/playlist/[id]/actions"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
-  removeMusic: (musicIds: string[]) => void
+  playlistId: string
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
-  removeMusic
+  playlistId,
 }: DataTableProps<TData, TValue>) {
+  const { toast } = useToast()
+  const router = useRouter()
   const [rowSelection, setRowSelection] = useState({})
   const table = useReactTable({
     data,
@@ -47,13 +52,27 @@ export function DataTable<TData, TValue>({
   /**
    * Supprimer la musique de la playlist
    */
-  const handleDelete = () => {
-    const {flatRows} = table.getSelectedRowModel()
+  const handleDelete = async () => {
+    const { flatRows } = table.getSelectedRowModel()
     const selectedData = flatRows.map((row: any) => row.original._id)
-    removeMusic(selectedData)
-    // const ids = rows.map(row => row.original.id)
+    const response = await removeMusic(playlistId, selectedData)
+    if (response) {
+      toast({
+        title: "Musique retirée",
+        description: response.message,
+      })
+      router.push(`/playlist/${playlistId}`, {
+        caches: "no-store",
+      })
+    } else {
+      toast({
+        title: "Erreur",
+        description:
+          "Une erreur est survenue lors de la suppression de la musique",
+        variant: "destructive",
+      })
+    }
   }
-
 
   return (
     <>
@@ -108,7 +127,10 @@ export function DataTable<TData, TValue>({
         </Table>
       </div>
       <div className="flex justify-end">
-        <Button disabled={table.getFilteredSelectedRowModel().rows.length <= 0} onClick={handleDelete}>
+        <Button
+          disabled={table.getFilteredSelectedRowModel().rows.length <= 0}
+          onClick={handleDelete}
+        >
           Retirer de la playlist
         </Button>
       </div>

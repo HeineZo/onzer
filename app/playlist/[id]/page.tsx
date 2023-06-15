@@ -7,8 +7,6 @@ import { Badge } from "@/components/ui/badge"
 import { DataTable } from "@/components/DataTable"
 
 import { columns } from "./components/columns"
-import { Musique } from "@/types/music"
-import { removeMusic } from "./actions"
 
 interface PlaylistProps {
   params: {
@@ -32,18 +30,6 @@ const getPlaylist = async (id: string) => {
   return res.json()
 }
 
-// const removeMusic = async (id: string, data: string[]) => {
-//   const response = await fetch(`/api/musique/${id}`, {
-//     method: "PATCH",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(data),
-//   })
-
-//   return response.json()
-// }
-
 export default async function Playlist({ params }: PlaylistProps) {
   const { playlist } = await getPlaylist(params.id)
 
@@ -66,7 +52,7 @@ export default async function Playlist({ params }: PlaylistProps) {
           )}
         </span>
       </div>
-      <DataTable columns={columns} data={playlist.musiques} removeMusic={(musicIds: string[]) => removeMusic(params.id, musicIds)}/>
+      <DataTable columns={columns} data={playlist.musiques} playlistId={params.id} />
     </section>
   )
 }

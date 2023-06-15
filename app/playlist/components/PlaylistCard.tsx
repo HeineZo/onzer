@@ -17,7 +17,7 @@ export default function PlaylistCard({ playlist }: PlaylistCardProps) {
       <div className="flex flex-col gap-2 w-[90%]">
         <h2>{playlist.titre}</h2>
         <p className="truncate">{playlist?.description}</p>
-        {playlist.musiques?.length && (
+        {playlist.musiques && playlist.musiques?.length > 0 && (
           <span>
             {playlist.musiques?.length + pluralize(playlist.musiques?.length, ' musique')} • {playlist.createur}
           </span>
