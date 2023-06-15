@@ -2,6 +2,7 @@
 
 import { Playlist } from "@/types/playlist"
 import {
+  addMusicToPlaylist,
   addPlaylist,
   removeMusicFromPlaylist,
 } from "@/lib/mongo/playlist/playlist"
@@ -32,11 +33,22 @@ export const addPlaylistData = async (data: Playlist) => {
 }
 
 /**
- * Enlever une musique d'une playlist
+ * Ajoute une musique à une playlist
+ * @param idPlaylist Identifiant de la playlist
+ * @param idMusique Identifiant de la musique
+ */
+export const addMusic = async (idPlaylist: string, idMusique: string) => {
+  console.log('aie')
+  return addMusicToPlaylist(idPlaylist, idMusique)
+}
+
+
+/**
+ * Enlever des musiques d'une playlist
  * @param id Id de la playlist
  * @param musicIds Ids des musiques à enlever
  */
-export async function removeMusic(id: string, musicIds: string[]) {
+export async function removeMusics(id: string, musicIds: string[]) {
   return removeMusicFromPlaylist(id, musicIds)
 }
 

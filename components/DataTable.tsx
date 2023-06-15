@@ -18,7 +18,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { removeMusic } from "@/app/playlist/actions"
+import { removeMusics } from "@/app/playlist/actions"
 
 import { Button } from "./ui/button"
 import { useToast } from "./ui/use-toast"
@@ -53,7 +53,7 @@ export function DataTable<TData, TValue>({
   const handleDelete = async () => {
     const { flatRows } = table.getSelectedRowModel()
     const selectedData = flatRows.map((row: any) => row.original._id)
-    const response = await removeMusic(playlistId, selectedData)
+    const response = await removeMusics(playlistId, selectedData)
     if (response) {
       toast({
         title: "Musique retirée",

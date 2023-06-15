@@ -12,7 +12,7 @@ export default function PlaylistCard({ playlist }: PlaylistCardProps) {
   return (
     <Link
       href={`/playlist/${playlist._id}`}
-      className="animate group flex w-96 cursor-pointer justify-between rounded-xl bg-muted p-5 ring-foreground hover:ring"
+      className="animate group flex w-96 cursor-pointer snap-center justify-between rounded-xl bg-muted p-5 ring-foreground hover:ring"
     >
       <div className="flex w-[90%] flex-col gap-2">
         <h2>{playlist.titre}</h2>

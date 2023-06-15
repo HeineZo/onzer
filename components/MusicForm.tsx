@@ -46,24 +46,29 @@ export const FormSchema = z.object({
 })
 
 interface MusicFormProps {
-    onSubmit: (data: z.infer<typeof FormSchema>) => void
-    selectedValues: string[]
-    setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>
-    values?: Musique
+  onSubmit: (data: z.infer<typeof FormSchema>) => void
+  selectedValues: string[]
+  setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>
+  values?: Musique
 }
 
-export default function MusicForm({onSubmit, selectedValues, setSelectedValues, values}: MusicFormProps) {
+export default function MusicForm({
+  onSubmit,
+  selectedValues,
+  setSelectedValues,
+  values,
+}: MusicFormProps) {
   const router = useRouter()
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-        titre: values?.titre,
-        artistes: values?.artistes.toString(),
-        duree: values?.duree.toString(),
-        pays: values?.pays,
-        dateSortie: values?.dateSortie && new Date(values?.dateSortie),
-        pochetteAlbum: values?.pochetteAlbum,
+      titre: values?.titre,
+      artistes: values?.artistes.toString(),
+      duree: values?.duree.toString(),
+      pays: values?.pays,
+      dateSortie: values?.dateSortie && new Date(values?.dateSortie),
+      pochetteAlbum: values?.pochetteAlbum,
     },
   })
 
@@ -136,6 +141,7 @@ export default function MusicForm({onSubmit, selectedValues, setSelectedValues, 
                 </FormControl>
                 {selectedValues.map((selected) => (
                   <Badge
+                    key={selected}
                     variant="secondary"
                     className="ml-1 cursor-pointer gap-2 px-5 py-2"
                     onClick={() =>
@@ -217,7 +223,7 @@ export default function MusicForm({onSubmit, selectedValues, setSelectedValues, 
             )}
           />
           <div className="flex gap-5">
-            <Button type="submit">{values ? 'Modifier' : 'Ajouter'}</Button>
+            <Button type="submit">{values ? "Modifier" : "Ajouter"}</Button>
             <Button variant={"secondary"} onClick={() => router.back()}>
               Annuler
             </Button>
