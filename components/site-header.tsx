@@ -18,13 +18,13 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container flex h-16 items-center space-x-4 gap-5 sm:justify-between sm:space-x-0">
+      <div className="container flex h-16 items-center gap-5 space-x-4 sm:justify-between sm:space-x-0">
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
             {pathname !== "/musique" && (
               <>
-                <div className="md:hidden flex">
+                <div className="flex md:hidden">
                   <button
                     className={buttonVariants({
                       size: "sm",
@@ -34,7 +34,7 @@ export function SiteHeader() {
                     <Search />
                   </button>
                 </div>
-                <div className="md:flex hidden">
+                <div className="hidden md:flex">
                   <Searchbar />
                 </div>
               </>

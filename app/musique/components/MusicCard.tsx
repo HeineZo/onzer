@@ -21,8 +21,8 @@ export default function MusicCard({
   return (
     <div
       onClick={() => !disableLink && router.push(`/musique?id=${music._id}`)}
-      className={`flex flex-col items-center gap-5 p-5 justify-center rounded-xl text-white animate ${
-        !disableLink && "hover:bg-muted group cursor-pointer"
+      className={`animate flex flex-col items-center justify-center gap-5 rounded-xl p-5 text-white ${
+        !disableLink && "group cursor-pointer hover:bg-muted"
       }`}
     >
       <Image
@@ -32,13 +32,13 @@ export default function MusicCard({
         }
         width="200"
         height="200"
-        className="object-cover h-40 rounded-xl w-40 group-hover:scale-105 animate"
+        className="animate h-40 w-40 rounded-xl object-cover group-hover:scale-105"
         alt="Pochette d'album"
       />
       <div className="flex justify-between">
-        <div className="flex flex-col text-foreground justify-center items-center">
-          <h2 className="text-xl truncate w-40">{music.titre}</h2>
-          <div className="truncate w-40 text-muted-foreground">
+        <div className="flex flex-col items-center justify-center text-foreground">
+          <h2 className="w-40 truncate text-xl">{music.titre}</h2>
+          <div className="w-40 truncate text-muted-foreground">
             {music?.artistes?.map((artiste: string, index: number) => (
               <span key={index}>{(index ? ", " : "") + artiste}</span>
             ))}

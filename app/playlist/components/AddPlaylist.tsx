@@ -6,7 +6,7 @@ export default function AddPlaylist() {
   return (
     <Link
       href="/playlist/creer"
-      className="flex w-96 h-[136px] p-5 flex-col justify-center items-center rounded-xl group text-muted-foreground hover:text-foreground hover:border-foreground cursor-pointer animate border-dashed border-2"
+      className="animate group flex h-[136px] w-96 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed p-5 text-muted-foreground hover:border-foreground hover:text-foreground"
     >
       <Plus size="50" />
       <h3>Créer une playlist</h3>

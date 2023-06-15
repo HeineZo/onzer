@@ -68,11 +68,11 @@ export default function MusicForm({onSubmit, selectedValues, setSelectedValues, 
   })
 
   return (
-    <div className="flex justify-between relative">
+    <div className="relative flex justify-between">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full sm:w-2/3 space-y-6"
+          className="w-full space-y-6 sm:w-2/3"
         >
           <FormField
             control={form.control}
@@ -137,7 +137,7 @@ export default function MusicForm({onSubmit, selectedValues, setSelectedValues, 
                 {selectedValues.map((selected) => (
                   <Badge
                     variant="secondary"
-                    className="cursor-pointer py-2 px-5 gap-2 ml-1"
+                    className="ml-1 cursor-pointer gap-2 px-5 py-2"
                     onClick={() =>
                       setSelectedValues((prev) =>
                         prev.filter((v) => v !== selected)
@@ -217,14 +217,14 @@ export default function MusicForm({onSubmit, selectedValues, setSelectedValues, 
             )}
           />
           <div className="flex gap-5">
-            <Button type="submit">Ajouter</Button>
+            <Button type="submit">{values ? 'Modifier' : 'Ajouter'}</Button>
             <Button variant={"secondary"} onClick={() => router.back()}>
               Annuler
             </Button>
           </div>
         </form>
       </Form>
-      <div className="h-fit sticky top-1/2 hidden md:flex">
+      <div className="sticky top-1/2 hidden h-fit md:flex">
         <MusicCard
           music={{
             ...form.watch(),

@@ -54,7 +54,7 @@ export const columns: ColumnDef<Musique>[] = [
           alt="Pochette de l'album"
           width="500"
           height="500"
-          className="rounded-xl w-16 h-16 object-cover"
+          className="h-16 w-16 rounded-xl object-cover"
         />
       )
     },

@@ -12,9 +12,9 @@ export default function PlaylistCard({ playlist }: PlaylistCardProps) {
   return (
     <Link
       href={`/playlist/${playlist._id}`}
-      className="cursor-pointer hover:ring ring-foreground flex w-96 p-5 bg-muted rounded-xl group justify-between animate"
+      className="animate group flex w-96 cursor-pointer justify-between rounded-xl bg-muted p-5 ring-foreground hover:ring"
     >
-      <div className="flex flex-col gap-2 w-[90%]">
+      <div className="flex w-[90%] flex-col gap-2">
         <h2>{playlist.titre}</h2>
         <p className="truncate">{playlist?.description}</p>
         {playlist.musiques && playlist.musiques?.length > 0 && (
@@ -23,8 +23,8 @@ export default function PlaylistCard({ playlist }: PlaylistCardProps) {
           </span>
         )}
       </div>
-      <div className="w-fit flex justify-center items-center">
-        <ChevronRight size={32} className="group-hover:translate-x-2 animate" />
+      <div className="flex w-fit items-center justify-center">
+        <ChevronRight size={32} className="animate group-hover:translate-x-2" />
       </div>
     </Link>
   )

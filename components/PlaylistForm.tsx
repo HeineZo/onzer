@@ -20,7 +20,7 @@ import { Textarea } from "@/components/ui/textarea"
 
 export const FormSchema = z.object({
   titre: z.string(),
-  description: z.string(),
+  description: z.string().optional(),
   createur: z.string(),
 })
 
@@ -45,7 +45,7 @@ export default function PlaylistForm({ onSubmit, values }: PlaylistForm) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-full sm:w-2/3 space-y-6"
+        className="w-full space-y-6 sm:w-2/3"
       >
         <FormField
           control={form.control}
@@ -64,7 +64,7 @@ export default function PlaylistForm({ onSubmit, values }: PlaylistForm) {
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Description</FormLabel>
+              <FormLabel>Description (optionnel)</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Ici, que des sons avec des ondes positives qui vous font sentir la chaleur du soleil sur votre peau."
@@ -87,7 +87,7 @@ export default function PlaylistForm({ onSubmit, values }: PlaylistForm) {
           )}
         />
         <div className="flex gap-5">
-          <Button type="submit">Créer la playlist</Button>
+          <Button type="submit">{values ? 'Modifier' : 'Créer la playlist'}</Button>
           <Button variant={"secondary"} onClick={() => router.back()}>
             Annuler
           </Button>

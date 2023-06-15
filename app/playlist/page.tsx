@@ -2,33 +2,24 @@ import { siteConfig } from "@/config/site"
 import React from "react"
 import PlaylistCard from "./components/PlaylistCard"
 import AddPlaylist from "./components/AddPlaylist"
+import { getPlaylists } from "./actions"
 
-const getPlaylists = async () => {
-  const res = await fetch(`${siteConfig.baseUrl}/api/playlist`, {
-    cache: "no-store",
-  })
-  if (!res.ok) {
-    throw new Error("Impossible de récupérer les playlists")
-  }
 
-  return res.json()
-}
-
-export default async function PlaylistsHome() {
+export default async function Page() {
   const { playlists } = await getPlaylists()
 
   return (
     <section>
       <h1>Mes playlists</h1>
       {playlists?.length ? (
-        <div className="flex gap-12 flex-wrap">
+        <div className="flex flex-wrap gap-12">
           {playlists?.map((playlist: any) => (
             <PlaylistCard key={playlist._id} playlist={playlist} />
           ))}
           <AddPlaylist />
         </div>
       ) : (
-        <div className="flex flex-col justify-center items-center gap-5">
+        <div className="flex flex-col items-center justify-center gap-5">
           <h2>Aucune playlist trouvée</h2>
         </div>
       )}

@@ -5,10 +5,8 @@ import { format, intervalToDuration } from "date-fns"
 import { fr } from "date-fns/locale"
 import { CalendarDays, Clock, Disc, Mic2, X } from "lucide-react"
 
-import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import { Combobox } from "@/components/Combobox"
-import Options from "@/components/Options"
 import MusicOptions from "./MusicOptions"
 import { getMusic } from "@/app/musique/actions"
 
@@ -21,7 +19,7 @@ export default async function MusicDetails({ id }: MusicDetailsProps) {
   const duree = intervalToDuration({ start: 0, end: music?.duree ?? 0 * 1000 })
 
   return (
-      <div className="absolute top-0 w-screen h-full backdrop-blur-lg overflow-hidden">
+      <div className="absolute top-0 h-full w-screen overflow-hidden backdrop-blur-lg">
         <section>
           <div className="flex flex-col gap-6">
             <span className="flex w-full justify-between">
@@ -39,16 +37,16 @@ export default async function MusicDetails({ id }: MusicDetailsProps) {
                 </Link>
               </div>
             </span>
-            <div className="flex lg:flex-row flex-col gap-5 justify-between">
+            <div className="flex flex-col justify-between gap-5 lg:flex-row">
               <div className="flex flex-col gap-6">
                 <Image
                   src={music?.pochetteAlbum}
                   width="1000"
                   height="1000"
-                  className="object-cover h-96 rounded-xl w-96 group-hover:scale-105 transition-all ease-in-out duration-150"
+                  className="h-96 w-96 rounded-xl object-cover transition-all duration-150 ease-in-out group-hover:scale-105"
                   alt="Pochette d'album"
                 />
-                <div className="flex gap-5 justify-between">
+                <div className="flex justify-between gap-5">
                   <span className="flex gap-2">
                     <CalendarDays />
                     <span>
@@ -64,7 +62,7 @@ export default async function MusicDetails({ id }: MusicDetailsProps) {
                   </span>
                 </div>
               </div>
-              <div className="flex flex-col gap-6 w-1/2">
+              <div className="flex w-1/2 flex-col gap-6">
                 <div className="flex gap-2">
                   <Mic2 />
                   <span>

@@ -7,19 +7,13 @@ import * as z from "zod"
 import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
 import { addPlaylistData } from "@/app/playlist/actions"
-import PlaylistForm from "@/components/PlaylistForm"
+import PlaylistForm, { FormSchema } from "@/components/PlaylistForm"
 
 
-export const FormSchema = z.object({
-  titre: z.string(),
-  description: z.string(),
-  createur: z.string(),
-})
 
 export default function AddMusic() {
   const { toast } = useToast()
   const router = useRouter()
-
 
   /**
    * Envoi des données à la base de données
@@ -30,7 +24,7 @@ export default function AddMusic() {
     if (response.success) {
       router.push("/playlist")
       toast({
-        title: "Playliste créée",
+        title: "Playlist créée",
         description: response.message,
         action: (
           <ToastAction altText="Ajouter des musiques">
@@ -55,7 +49,7 @@ export default function AddMusic() {
           Tous les champs sont obligatoires
         </h2>
       </div>
-      <PlaylistForm onSubmit={onSubmit} />
+      <PlaylistForm onSubmit={(data: z.infer<typeof FormSchema>) => onSubmit(data)} />
     </section>
   )
 }

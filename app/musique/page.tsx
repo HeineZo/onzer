@@ -8,10 +8,10 @@ import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import Searchbar from "@/components/Searchbar"
 
+import Loading from "../loading"
 import AddMusicCard from "./components/AddMusicCard"
 import MusicCard from "./components/MusicCard"
 import MusicDetails from "./components/MusicDetails"
-import Loading from "../loading"
 
 const getMusics = async () => {
   const res = await fetch(`${siteConfig.baseUrl}/api/musique`, {
@@ -39,14 +39,14 @@ export default async function Musiques({ searchParams }: MusiquesProps) {
           <Searchbar />
         </div>
         {musics?.length ? (
-          <div className="flex gap-12 flex-wrap sm:justify-start justify-center ">
+          <div className="flex flex-wrap justify-center gap-12 sm:justify-start ">
             {musics?.map((music: Musique) => (
               <MusicCard music={music} key={music._id} />
             ))}
             <AddMusicCard />
           </div>
         ) : (
-          <div className="flex flex-col justify-center items-center gap-5">
+          <div className="flex flex-col items-center justify-center gap-5">
             <Music size="100" />
             <h2>Aucune musique trouvée</h2>
             <Link
@@ -58,11 +58,7 @@ export default async function Musiques({ searchParams }: MusiquesProps) {
           </div>
         )}
       </section>
-      {searchParams?.id && (
-        <Suspense fallback={<Loading />}>
-          <MusicDetails id={searchParams.id} />
-        </Suspense>
-      )}
+      {searchParams?.id && <MusicDetails id={searchParams.id} />}
     </div>
   )
 }

@@ -9,6 +9,21 @@ import { siteConfig } from "@/config/site"
 
 
 /**
+ * Récupérer toutes les playlists
+ * @returns Liste des playlists
+ */
+export const getPlaylists = async () => {
+  const res = await fetch(`${siteConfig.baseUrl}/api/playlist`, {
+    cache: "no-store",
+  })
+  if (!res.ok) {
+    throw new Error("Impossible de récupérer les playlists")
+  }
+
+  return res.json()
+}
+
+/**
  * Créé une playlist
  * @param data Données de la playlist
  */
