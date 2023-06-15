@@ -18,12 +18,10 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { removeMusic } from "@/app/playlist/[id]/actions"
+import { removeMusic } from "@/app/playlist/actions"
 
 import { Button } from "./ui/button"
 import { useToast } from "./ui/use-toast"
-
-// import { removeMusic } from "@/app/playlist/[id]/actions"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]

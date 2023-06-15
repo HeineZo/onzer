@@ -87,7 +87,7 @@
   }
 
   section {
-    @apply container flex flex-col h-screen gap-16 py-8 md:py-10;
+    @apply container flex flex-col min-h-screen gap-16 py-8 md:py-10;
   }
 
   p {

@@ -32,14 +32,14 @@ export default async function Musiques({ searchParams }: MusiquesProps) {
   const { musics } = await getMusics()
 
   return (
-    <div className="relative">
+    <div className="relative h-full">
       <section>
-        <div className="flex flex-col  gap-6">
+        <div className="flex flex-col gap-6">
           <h1>Explorer</h1>
           <Searchbar />
         </div>
         {musics?.length ? (
-          <div className="flex gap-12 flex-wrap">
+          <div className="flex gap-12 flex-wrap sm:justify-start justify-center ">
             {musics?.map((music: Musique) => (
               <MusicCard music={music} key={music._id} />
             ))}

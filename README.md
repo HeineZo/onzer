@@ -62,8 +62,8 @@ L'interface de l'application sera disponible à l'addresse [http://localhost:300
 - [x]  Récupérer les données d'une playlist
 - [ ]  Ajouter une musique à une playlist
 - [x]  Créer une playlist
-- [ ]  Modifier une playlist
-- [ ]  Supprimer une playlist
+- [x]  Modifier une playlist
+- [x]  Supprimer une playlist
 - [ ]  Récupérer l'image d'une musique automatiquement en fonction de son titre
 - [ ]  Rechercher une musique ou une playlist à partir de critères
 

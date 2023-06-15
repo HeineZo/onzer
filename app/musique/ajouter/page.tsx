@@ -10,7 +10,7 @@ import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
 import MusicForm, { FormSchema } from "@/components/MusicForm"
 
-import { addMusicData } from "./actions"
+import { addMusicData } from "@/app/musique/actions"
 
 export default function AddMusic() {
   const { toast } = useToast()

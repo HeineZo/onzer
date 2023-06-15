@@ -5,8 +5,7 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 
 import { Musique } from "@/types/music"
-import MusicOptions from "@/components/MusicOptions"
-
+import MusicOptions from "./MusicOptions"
 
 interface MusicCardProps {
   music: Musique
@@ -45,7 +44,7 @@ export default function MusicCard({
             ))}
           </div>
         </div>
-        {!disableLink && <MusicOptions id={music._id ?? ''} />}
+        {!disableLink && <MusicOptions id={music?._id ?? ''} />}
       </div>
     </div>
   )

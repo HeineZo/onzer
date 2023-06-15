@@ -1,46 +1,39 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import * as z from "zod"
 
-import { Musique } from "@/types/music"
+import { Playlist } from "@/types/playlist"
 import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
-import MusicForm, { FormSchema } from "@/components/MusicForm"
-import { editMusic } from "@/app/musique/actions"
+import PlaylistForm, { FormSchema } from "@/components/PlaylistForm"
+import { editMethod } from "@/app/playlist/actions"
 
-
-interface EditMusicProps {
-  values: Musique
+interface EditPlaylistProps {
+  values: Playlist
 }
 
-export default function EditMusic({ values }: EditMusicProps) {
+export default function EditPlaylist({ values }: EditPlaylistProps) {
   const { toast } = useToast()
   const router = useRouter()
 
-  const [selectedValues, setSelectedValues] = useState<string[]>(values.genres)
-
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-    let newData: Musique = {
+    let newData: Playlist = {
       ...data,
       _id: values._id,
-      duree: Number(data.duree),
-      artistes: data.artistes.trim().split(","),
-      genres: selectedValues.map((value) => value.toLowerCase()),
     }
 
-    const response = await editMusic(newData)
-
+    const response = await editMethod(newData)
     if (response.success) {
-      router.push("/musique")
+      router.push("/playlist")
       toast({
-        title: "Musique modifiée",
+        title: "Playlist modifiée",
         description: response.message,
         action: (
-          <ToastAction altText="Voir la musique">
-            <Link href={`/musique?id=${response.success}`}>Voir</Link>
+          <ToastAction altText="Voir la playlist">
+            <Link href={`/playlist/${values._id}`}>Voir</Link>
           </ToastAction>
         ),
       })
@@ -56,15 +49,13 @@ export default function EditMusic({ values }: EditMusicProps) {
   return (
     <section>
       <div className="flex flex-col gap-5">
-        <h1>Modifier une musique</h1>
+        <h1>Modifier une playlist</h1>
         <h2 className="text-muted-foreground">
           Tous les champs sont obligatoires
         </h2>
       </div>
-      <MusicForm
+      <PlaylistForm
         onSubmit={(data: z.infer<typeof FormSchema>) => onSubmit(data)}
-        selectedValues={selectedValues}
-        setSelectedValues={setSelectedValues}
         values={values}
       />
     </section>

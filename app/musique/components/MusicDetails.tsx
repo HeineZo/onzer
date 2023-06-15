@@ -8,20 +8,12 @@ import { CalendarDays, Clock, Disc, Mic2, X } from "lucide-react"
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
 import { Combobox } from "@/components/Combobox"
-import MusicOptions from "@/components/MusicOptions"
-import { Portal } from "@/components/Portal"
+import Options from "@/components/Options"
+import MusicOptions from "./MusicOptions"
+import { getMusic } from "@/app/musique/actions"
 
 interface MusicDetailsProps {
   id: string
-}
-
-const getMusic = async (id: string) => {
-  const res = await fetch(`${siteConfig.baseUrl}/api/musique/${id}`)
-  if (!res.ok) {
-    throw new Error("Cette musique n'existe pas")
-  }
-
-  return res.json()
 }
 
 export default async function MusicDetails({ id }: MusicDetailsProps) {
@@ -29,7 +21,6 @@ export default async function MusicDetails({ id }: MusicDetailsProps) {
   const duree = intervalToDuration({ start: 0, end: music?.duree ?? 0 * 1000 })
 
   return (
-    // <Portal>
       <div className="absolute top-0 w-screen h-full backdrop-blur-lg overflow-hidden">
         <section>
           <div className="flex flex-col gap-6">
@@ -48,7 +39,7 @@ export default async function MusicDetails({ id }: MusicDetailsProps) {
                 </Link>
               </div>
             </span>
-            <div className="flex justify-between">
+            <div className="flex lg:flex-row flex-col gap-5 justify-between">
               <div className="flex flex-col gap-6">
                 <Image
                   src={music?.pochetteAlbum}
@@ -105,6 +96,5 @@ export default async function MusicDetails({ id }: MusicDetailsProps) {
           </div>
         </section>
       </div>
-    // </Portal>
   )
 }
