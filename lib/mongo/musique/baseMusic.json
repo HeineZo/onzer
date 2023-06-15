@@ -1,4 +1,5 @@
 [{
+    "_id": "648ac55af3d6fd55b1d4864b",
     "titre": "Au DD",
     "artistes": ["PNL"],
     "pochetteAlbum": "https://i.scdn.co/image/ab67616d0000b273f1d9d9871a2d21cc343166f3",
@@ -8,6 +9,7 @@
     "dateSortie": "2021-05-10"
   },
   {
+    "_id": "648ac55af3d6fd55b1d4864c",
     "titre": "Bande Organisée",
     "artistes": ["Jul","Sch","Naps","Kofs","Elams","Solda"],
     "pochetteAlbum": "https://i.scdn.co/image/ab67616d0000b27395e2527023061d088736ed3d",
@@ -17,6 +19,7 @@
     "dateSortie": "2020-07-01"
   },
   {
+    "_id": "648ac55af3d6fd55b1d4864d",
     "titre": "Validé",
     "artistes": ["Médine"],
     "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5eb791b1ecfe6f3101115430fb5",
@@ -26,6 +29,7 @@
     "dateSortie": "2021-01-15"
   },
   {
+    "_id": "648ac55af3d6fd55b1d4864e",
     "titre": "Mula",
     "artistes": ["Dadju"],
     "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5ebcaf2416ef3892072fe428910",
@@ -35,6 +39,7 @@
     "dateSortie": "2022-09-02"
   },
   {
+    "_id": "648ac55af3d6fd55b1d4864f",
     "titre": "Médicament",
     "artistes": ["Ninho"],
     "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5eb0910ff09d3b54b114d233aa3",
@@ -44,6 +49,7 @@
     "dateSortie": "2022-03-18"
   },
   {
+    "_id": "648ac55af3d6fd55b1d48650",
     "titre": "N'y pense plus",
     "artistes": ["Koba LaD"],
     "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5ebe697a7ddf7af3a306428fa73",
@@ -53,6 +59,7 @@
     "dateSortie": "2023-02-05"
   },
   {
+    "_id": "648ac55af3d6fd55b1d48651",
     "titre": "Schéma",
     "artistes": ["SCH"],
     "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5eb5ea827dbd0659ea8ec3d6171",
@@ -62,6 +69,7 @@
     "dateSortie": "2022-11-24"
   },
   {
+    "_id": "648ac55af3d6fd55b1d48652",
     "titre": "Polo & Pan",
     "artistes": ["Lous and The Yakuza","Hamza"],
     "pochetteAlbum": "https://i.scdn.co/image/ab6761610000e5ebb9d9f3513bdc687cca7a6734",
