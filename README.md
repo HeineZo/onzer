@@ -19,13 +19,17 @@ Une fois le projet cloné, installez toutes les dépendances
   npm i
 ```
 
-### En local
+### Installation de la base de données
+---
+    💡 Pour installer la base de données, vous avez le choix. Soit vous installez MongoDB pour avoir la base de données en local. Soit vous utilisez le service cloud proposez par MongoDB.
+
+### 👉 En local
 Pour faire fonctionner l'application en local, installez le client [MongoDB](https://www.mongodb.com/try/download/community) \
 Une fois l'installation terminée, le service MongoDB devrait tourné sur le port **27017** \ 
 
 C'est tout ✅
 
-### Avec MongoDB Atlas
+### 👉 Avec MongoDB Atlas
 - Créez un compte [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) 
 - Une fois sur l'interface d'Atlas, cliquez sur le bouton **Database**
 - Dans la section **Database Deployments**, appuyez sur **Connect** pour la base de donnée que vous souhaitez utiliser
@@ -38,12 +42,20 @@ Changez le lien de connexion de la base de donnée dans le fichier **index.js** 
  
 
 ## 👨‍💻 Utilisation
+Une fois que vous avez procédé à l'installation, il ne vous reste plus qu'à lancer l'application. 
 
-Une fois que vous avez procédé à l'installation, il ne vous reste plus qu'à lancer l'application. \
-Pour ce faire, executez la commande suivante
+### 👉 Si vous souhaitez développer l'application
 
 ```bash
   npm run dev
+```
+
+L'interface de l'application sera disponible à l'addresse [http://localhost:3000](http://localhost:3000)
+
+### 👉 Si vous souhaitez développer l'application
+
+```bash
+  npm run preview
 ```
 
 L'interface de l'application sera disponible à l'addresse [http://localhost:3000](http://localhost:3000)
@@ -60,12 +72,12 @@ L'interface de l'application sera disponible à l'addresse [http://localhost:300
 - [x]  Supprimer une musique
 - [x]  Lister toutes les playlists
 - [x]  Récupérer les données d'une playlist
-- [ ]  Ajouter une musique à une playlist
+- [x]  Ajouter une musique à une playlist
 - [x]  Créer une playlist
 - [x]  Modifier une playlist
 - [x]  Supprimer une playlist
-- [ ]  Récupérer l'image d'une musique automatiquement en fonction de son titre
-- [ ]  Rechercher une musique ou une playlist à partir de critères
+- [x]  Récupérer l'image d'une musique automatiquement en fonction de son titre
+- [x]  Rechercher une musique ou une playlist à partir de critères
 
 
 

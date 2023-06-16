@@ -1,7 +1,6 @@
 export enum SearchCategory {
-  Musique = "musique",
-  Playlist = "playlist",
-  Artiste = "artiste",
+  Titre = "titre",
+  Artiste = "artistes",
   Pays = "pays",
-  Genre = "genre",
+  Genre = "genres",
 }

@@ -24,3 +24,17 @@ export function pluralize(nb: number, str: string) {
 export function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
+
+/**
+ * Détermine si un objet est vide
+ * @param obj Objet à tester
+ * @returns True si l'objet est vide, false sinon
+ */
+export function isEmpty(obj: Object) {
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      return false;
+    }
+  }
+  return true;
+}

@@ -1,8 +1,9 @@
 "use client"
 
-import React from "react"
+import React, { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { zodResolver } from "@hookform/resolvers/zod"
+import albumArt from "album-art"
 import { format } from "date-fns"
 import { fr } from "date-fns/locale"
 import { Calendar as CalendarIcon, X } from "lucide-react"
@@ -71,6 +72,15 @@ export default function MusicForm({
       pochetteAlbum: values?.pochetteAlbum,
     },
   })
+
+  useEffect(() => {
+    const options = {
+      album: form.watch("titre"),
+    }
+    albumArt(form.watch("artistes") ?? "", options, (err: any, res: any) => {
+      form.setValue("pochetteAlbum", res)
+    })
+  }, [form.watch("titre"), form.watch("artistes")])
 
   return (
     <div className="relative flex justify-between">

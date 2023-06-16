@@ -14,6 +14,7 @@ import MusicCard from "./components/MusicCard"
 import MusicDetails from "./components/MusicDetails"
 import { SearchCategory } from "@/types/search"
 import { searchMusics } from "@/app/musique/actions"
+import { isEmpty } from "@/lib/utils"
 
 const getMusics = async () => {
   const res = await fetch(`${siteConfig.baseUrl}/api/musique`, {
@@ -28,22 +29,21 @@ const getMusics = async () => {
 
 interface MusiquesProps {
   params: string
-  searchParams: {
-    id: string
-    category: SearchCategory
-  }
+  searchParams: any
 }
 
 export default async function Musiques({
   params,
   searchParams,
 }: MusiquesProps) {
-  // const { musics } = await getMusics()
 
-  let search = searchParams.category ?? ""
-  let result = await searchMusics(search, params)
-
-  // let { musics } = result
+  let result;
+  if (!isEmpty(searchParams)) {
+    result = await searchMusics(searchParams)
+  } else {
+    result = await getMusics()
+  }
+  let { musics } = result
 
   return (
     <div className="relative h-full">
@@ -52,7 +52,7 @@ export default async function Musiques({
           <h1>Explorer</h1>
           <Searchbar />
         </div>
-        {/* {musics?.length ? (
+        {musics?.length ? (
           <div className="flex flex-wrap justify-center gap-12 sm:justify-start ">
             {musics?.map((music: Musique) => (
               <MusicCard music={music} key={music._id} />
@@ -70,7 +70,7 @@ export default async function Musiques({
               Ajouter une musique
             </Link>
           </div>
-        )} */}
+        )}
       </section>
       {searchParams?.id && <MusicDetails id={searchParams.id} />}
     </div>

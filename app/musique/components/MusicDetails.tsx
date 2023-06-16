@@ -19,7 +19,7 @@ interface MusicDetailsProps {
   id: string
 }
 
-export default async function MusicDetails({ id }: MusicDetailsProps) {
+export default async function MusicDetails({ id }: MusicDetailsProps): Promise<JSX.Element> {
   const getMusic = await musicWithinPlaylist(id)
   const getAllPlaylists = await getPlaylists()
   const [musicResponse, playlistsResponse] = await Promise.all([getMusic, getAllPlaylists])

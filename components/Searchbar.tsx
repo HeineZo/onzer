@@ -1,13 +1,12 @@
 "use client"
 
 import React, {
-  startTransition,
-  useEffect,
+  Ref,
+  useRef,
   useState,
   useTransition,
 } from "react"
 import { usePathname, useRouter } from "next/navigation"
-import { Search } from "lucide-react"
 
 import { SearchCategory } from "@/types/search"
 import {
@@ -15,45 +14,65 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
 
-import { buttonVariants } from "./ui/button"
 import { Input } from "./ui/input"
-import { usePrevious } from "@uidotdev/usehooks";
+
+interface handleChangeParams {
+  value: string
+  filter: SearchCategory
+}
 
 export default function Searchbar() {
-  const [filter, setFilter] = useState(Object.values(SearchCategory)[0])
-  const previousFilter = usePrevious(filter);
+  const [filter, setFilter] = useState(SearchCategory["Titre"])
+  const [value, setValue] = useState("")
+
   let pathname = usePathname()
-  let { replace } = useRouter()
+  const router = useRouter()
+  const ref = useRef<HTMLInputElement>()
   let [isPending, startTransition] = useTransition()
 
-  const handleSearch = (value: string) => {
-    let params = new URLSearchParams(window.location.search)
+  /**
+   * Lorsque le filtre de recherche change ou que la recherche change
+   */
+  const handleChange = ({value, filter}: handleChangeParams) => {
+    let params = new URLSearchParams()
     if (value) {
       params.set(filter, value)
     } else {
       params.delete(filter)
     }
     startTransition(() => {
-      replace(`${pathname}?${params.toString()}`)
+      router.replace(`${pathname}?${params.toString()}`)
     })
   }
 
-  useEffect(() => {
-    let params = new URLSearchParams(window.location.search)
+  /**
+   * Lorsque la recherche change
+   * @param value Valeur de la recherche
+   */
+  const handleSearch = (value: string) => {
+    setValue(value)
+    handleChange({value, filter})
+  }
 
-    params.delete(previousFilter)
-  }, [filter])
+  /**
+   * Lorsque le filtre de recherche change
+   * @param newFilter Nouveau filtre à appliquer
+   */
+  const handleSelect = (newFilter: SearchCategory) => {
+    setFilter(newFilter)
+    handleChange({value, filter: newFilter})
+  }
+
 
   return (
     <div className="flex">
       <Select
-        defaultValue={Object.values(SearchCategory)[0]}
-        onValueChange={(newFilter: SearchCategory) => setFilter(newFilter)}
+        defaultValue={SearchCategory["Titre"]}
+        onValueChange={(newFilter: SearchCategory) => handleSelect(newFilter)}
       >
         <SelectTrigger className="w-32 rounded-r-none border-r-0">
           <SelectValue />
@@ -61,7 +80,7 @@ export default function Searchbar() {
         <SelectContent>
           <SelectGroup>
             {Object.keys(SearchCategory).map((item) => (
-              <SelectItem key={item} value={item.toLowerCase()}>
+              <SelectItem key={item} value={SearchCategory[item as keyof typeof SearchCategory]}>
                 {item}
               </SelectItem>
             ))}
@@ -72,6 +91,7 @@ export default function Searchbar() {
         placeholder={`Recherchez par ${filter}`}
         className="rounded-l-none border-l-0"
         onChange={(e) => handleSearch(e.target.value)}
+        ref={ref as Ref<HTMLInputElement>}
       />
     </div>
   )

@@ -9,12 +9,3 @@ export async function GET() {
     const response = await getAllMusic();
     return NextResponse.json(response)
 }
-
-/**
- * Ajouter une musique
- */
-export async function POST(request: Request) {
-    const res = await request.json()
-    const response = await addMusic(res);
-    return NextResponse.json(response)
-}

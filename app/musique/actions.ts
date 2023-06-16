@@ -1,10 +1,9 @@
 "use server"
 
 import { Musique } from "@/types/music"
-import { addMusic } from "@/lib/mongo/musique/music"
-import { siteConfig } from "@/config/site"
 import { SearchCategory } from "@/types/search"
-
+import { siteConfig } from "@/config/site"
+import { addMusic, search } from "@/lib/mongo/musique/music"
 
 /**
  * Récupérer la musique
@@ -26,18 +25,17 @@ export const getMusic = async (id: string) => {
  * @param query   Requête de la recherche
  * @returns Résultats de la recherche
  */
-export const searchMusics = async (category: SearchCategory, query: string) => {
-  console.log(category, query)
-  // const res = await fetch(`${siteConfig.baseUrl}/api/search/${category}?q=${query}`)
-  // if (!res.ok) {
-  //   throw new Error("Erreur lors de la recherche")
-  // }
-  // return res.json()
+export const searchMusics = async (searchParams: {
+  category: SearchCategory
+  query: string
+}) => {
+  const res = await search(Object.keys(searchParams).toString(), Object.values(searchParams).toString())
+  return res
 }
 
 /**
  * Récupère les playlists dans lesquelles la musique figure
- * @param id Identifiant de la musique 
+ * @param id Identifiant de la musique
  * @returns Les playlists dans lesquelles la musique figure
  */
 export const musicWithinPlaylist = async (id: string) => {
@@ -73,13 +71,16 @@ export const addMusicData = async (data: Musique) => {
  * @param data Données de la musique à modifier
  */
 export const editMusic = async (data: Musique) => {
-  const response = await fetch(`${siteConfig.baseUrl}/api/musique/${data._id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
+  const response = await fetch(
+    `${siteConfig.baseUrl}/api/musique/${data._id}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  )
 
   return response.json()
 }
