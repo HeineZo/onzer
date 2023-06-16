@@ -2,7 +2,6 @@
 
 const yargs = require("yargs/yargs")
 const { hideBin } = require("yargs/helpers")
-const { ar } = require("date-fns/locale")
 const argv = yargs(hideBin(process.argv)).argv
 const MongoClient = require("mongodb").MongoClient
 
