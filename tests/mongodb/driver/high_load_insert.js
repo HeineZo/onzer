@@ -25,7 +25,7 @@ async function insertData() {
     }
     for (let i = 1; i <= numDocuments; i++) {
       const document = {
-        titre: `Song${i}`,
+        titre: `${argv.title || "Song"} ${i}`,
         artistes: ["Artist 1"],
         pochetteAlbum: "https://example.com/pochette.jpg",
         duree: 240,

@@ -40,7 +40,7 @@ async function insertData() {
     // Mesurer le temps de début
     const startTime = new Date().getTime();
 
-    const query = "INSERT INTO musiques (titre, artistes, pochetteAlbum, duree, genres, pays, dateSortie) VALUES ?";
+    const query = "INSERT INTO musique (titre, artiste, pochetteAlbum, duree, genre, pays, dateSortie) VALUES ?";
     const values = documents.map((document) => [
       document.titre,
       document.artiste,
