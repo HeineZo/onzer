@@ -3,6 +3,7 @@
 import { Musique } from "@/types/music"
 import { addMusic } from "@/lib/mongo/musique/music"
 import { siteConfig } from "@/config/site"
+import { SearchCategory } from "@/types/search"
 
 
 /**
@@ -17,6 +18,21 @@ export const getMusic = async (id: string) => {
   }
 
   return res.json()
+}
+
+/**
+ * Rechercher une musique par une catégorie et une requête
+ * @param category  Catégorie de la recherche
+ * @param query   Requête de la recherche
+ * @returns Résultats de la recherche
+ */
+export const searchMusics = async (category: SearchCategory, query: string) => {
+  console.log(category, query)
+  // const res = await fetch(`${siteConfig.baseUrl}/api/search/${category}?q=${query}`)
+  // if (!res.ok) {
+  //   throw new Error("Erreur lors de la recherche")
+  // }
+  // return res.json()
 }
 
 /**

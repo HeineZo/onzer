@@ -1,8 +1,15 @@
 "use client"
 
-import React, { useState } from "react"
+import React, {
+  startTransition,
+  useEffect,
+  useState,
+  useTransition,
+} from "react"
+import { usePathname, useRouter } from "next/navigation"
 import { Search } from "lucide-react"
 
+import { SearchCategory } from "@/types/search"
 import {
   Select,
   SelectContent,
@@ -15,47 +22,47 @@ import {
 
 import { buttonVariants } from "./ui/button"
 import { Input } from "./ui/input"
-
-const findBy = [
-  {
-    value: "musique",
-    label: "Musique",
-  },
-  {
-    value: "playlist",
-    label: "Playlist",
-  },
-  {
-    value: "artiste",
-    label: "Artiste",
-  },
-  {
-    value: "pays",
-    label: "Pays",
-  },
-  {
-    value: "genre",
-    label: "Genre",
-  },
-]
+import { usePrevious } from "@uidotdev/usehooks";
 
 export default function Searchbar() {
-  const [filter, setFilter] = useState("musique")
+  const [filter, setFilter] = useState(Object.values(SearchCategory)[0])
+  const previousFilter = usePrevious(filter);
+  let pathname = usePathname()
+  let { replace } = useRouter()
+  let [isPending, startTransition] = useTransition()
+
+  const handleSearch = (value: string) => {
+    let params = new URLSearchParams(window.location.search)
+    if (value) {
+      params.set(filter, value)
+    } else {
+      params.delete(filter)
+    }
+    startTransition(() => {
+      replace(`${pathname}?${params.toString()}`)
+    })
+  }
+
+  useEffect(() => {
+    let params = new URLSearchParams(window.location.search)
+
+    params.delete(previousFilter)
+  }, [filter])
 
   return (
     <div className="flex">
       <Select
-        defaultValue="musique"
-        onValueChange={(newFilter) => setFilter(newFilter)}
+        defaultValue={Object.values(SearchCategory)[0]}
+        onValueChange={(newFilter: SearchCategory) => setFilter(newFilter)}
       >
         <SelectTrigger className="w-32 rounded-r-none border-r-0">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            {findBy.map((item) => (
-              <SelectItem key={item.value} value={item.value}>
-                {item.label}
+            {Object.keys(SearchCategory).map((item) => (
+              <SelectItem key={item} value={item.toLowerCase()}>
+                {item}
               </SelectItem>
             ))}
           </SelectGroup>
@@ -64,6 +71,7 @@ export default function Searchbar() {
       <Input
         placeholder={`Recherchez par ${filter}`}
         className="rounded-l-none border-l-0"
+        onChange={(e) => handleSearch(e.target.value)}
       />
     </div>
   )
