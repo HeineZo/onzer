@@ -38,7 +38,6 @@ export const addPlaylistData = async (data: Playlist) => {
  * @param idMusique Identifiant de la musique
  */
 export const addMusic = async (idPlaylist: string, idMusique: string) => {
-  console.log('aie')
   return addMusicToPlaylist(idPlaylist, idMusique)
 }
 

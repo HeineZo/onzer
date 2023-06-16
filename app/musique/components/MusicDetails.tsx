@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { format, intervalToDuration } from "date-fns"
@@ -13,6 +13,7 @@ import PlaylistCard from "@/app/playlist/components/PlaylistCard"
 import { AddToPlaylist } from "./AddToPlaylist"
 import MusicOptions from "./MusicOptions"
 import { getPlaylists } from "@/app/playlist/actions"
+import MusicPlaylists from "./MusicPlaylists"
 
 interface MusicDetailsProps {
   id: string
@@ -23,8 +24,7 @@ export default async function MusicDetails({ id }: MusicDetailsProps) {
   const getAllPlaylists = await getPlaylists()
   const [musicResponse, playlistsResponse] = await Promise.all([getMusic, getAllPlaylists])
   const {music} = musicResponse
-  const {playlists} = playlistsResponse
-  const duree = intervalToDuration({ start: 0, end: music?.duree ?? 0 * 1000 })
+  const duree = intervalToDuration({ start: 0, end: music?.duree * 1000 })
 
   return (
     <div className="absolute top-0 h-full w-screen overflow-hidden backdrop-blur-lg">
@@ -89,28 +89,7 @@ export default async function MusicDetails({ id }: MusicDetailsProps) {
                   ))}
                 </span>
               </div>
-              <div className="flex flex-col gap-2">
-                <h2>Apparaît dans</h2>
-                <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto overflow-y-hidden p-5">
-                  {music?.playlists?.map(
-                    (playlist: Playlist, index: number) => (
-                      <PlaylistCard key={index} playlist={playlist} />
-                    )
-                  )}
-                </div>
-              </div>
-              <AddToPlaylist
-                values={playlists}
-                musiqueId={id}
-                placeholder="Recherchez une playlist"
-                checkedIds={music?.playlists?.map(
-                  (playlist: Playlist) => playlist._id
-                )}
-              >
-                <button className={`${buttonVariants()} w-60`}>
-                  Ajouter à une playlist
-                </button>
-              </AddToPlaylist>
+              <MusicPlaylists playlists={playlistsResponse.playlists} musicPlaylists={music?.playlists} musicId={music?._id} />
             </div>
           </div>
         </div>

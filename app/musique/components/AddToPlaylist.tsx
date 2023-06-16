@@ -18,11 +18,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { useToast } from "@/components/ui/use-toast"
 import { addMusic, removeMusics } from "@/app/playlist/actions"
 
 interface AddToPlaylistProps {
   children: React.ReactNode
   values: Playlist[]
+  setValues: React.Dispatch<React.SetStateAction<Playlist[]>>
   musiqueId: string
   checkedIds?: string[]
   placeholder?: string
@@ -31,23 +33,49 @@ interface AddToPlaylistProps {
 export function AddToPlaylist({
   children,
   values,
+  setValues,
   checkedIds,
   musiqueId,
   placeholder,
   notFoundMessage,
 }: AddToPlaylistProps) {
+  const { toast } = useToast()
   const [open, setOpen] = React.useState(false)
   const [checkedValues, setCheckedValues] = React.useState<string[]>(
     checkedIds ?? []
   )
 
-  const handleSelect = (currentValue: string) => {
+  /**
+   * Lorsqu'une playlist est sélectionnée
+   * @param currentValue Identifiant de la playlist
+   */
+  const handleSelect = async (currentValue: string) => {
+    let response
     if (checkedValues.includes(currentValue)) {
       setCheckedValues(checkedValues.filter((value) => value !== currentValue))
-      addMusic(currentValue, musiqueId)
+      setValues((prevValues) =>
+        prevValues.filter((value) => value._id !== currentValue)
+      )
+      response = await removeMusics(currentValue, [musiqueId])
     } else {
       setCheckedValues([...checkedValues, currentValue])
-      removeMusics(currentValue, [musiqueId])
+      setValues((prevValues) => [
+        ...prevValues,
+        values.find((value) => value._id === currentValue) ?? ({} as Playlist),
+      ])
+      response = await addMusic(currentValue, musiqueId)
+    }
+    if (response.success) {
+      toast({
+        title: "Succès",
+        description: response.message,
+      })
+    } else {
+      toast({
+        title: "Erreur",
+        description: response.message,
+        variant: "destructive",
+      })
     }
   }
 
