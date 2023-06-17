@@ -23,7 +23,7 @@ Une fois le projet cloné, installez toutes les dépendances
 
 💡 Pour installer la base de données, vous avez le choix. Soit vous installez MongoDB pour avoir la base de données en local. Soit vous utilisez le service cloud proposez par MongoDB.
 
-**👉 En local**
+**👉 En local**\
 Pour faire fonctionner l'application en local, installez le client [MongoDB](https://www.mongodb.com/try/download/community) \
 Une fois l'installation terminée, le service MongoDB devrait tourné sur le port **27017** \ 
 
