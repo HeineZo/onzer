@@ -20,16 +20,16 @@ Une fois le projet cloné, installez toutes les dépendances
 ```
 
 ### Installation de la base de données
----
-    💡 Pour installer la base de données, vous avez le choix. Soit vous installez MongoDB pour avoir la base de données en local. Soit vous utilisez le service cloud proposez par MongoDB.
 
-### 👉 En local
+💡 Pour installer la base de données, vous avez le choix. Soit vous installez MongoDB pour avoir la base de données en local. Soit vous utilisez le service cloud proposez par MongoDB.
+
+**👉 En local**
 Pour faire fonctionner l'application en local, installez le client [MongoDB](https://www.mongodb.com/try/download/community) \
 Une fois l'installation terminée, le service MongoDB devrait tourné sur le port **27017** \ 
 
 C'est tout ✅
 
-### 👉 Avec MongoDB Atlas
+**👉 Avec MongoDB Atlas**
 - Créez un compte [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) 
 - Une fois sur l'interface d'Atlas, cliquez sur le bouton **Database**
 - Dans la section **Database Deployments**, appuyez sur **Connect** pour la base de donnée que vous souhaitez utiliser
@@ -52,7 +52,7 @@ Une fois que vous avez procédé à l'installation, il ne vous reste plus qu'à 
 
 L'interface de l'application sera disponible à l'addresse [http://localhost:3000](http://localhost:3000)
 
-### 👉 Si vous souhaitez développer l'application
+### 👉 Si vous souhaitez utiliser l'application
 
 ```bash
   npm run preview
