@@ -7,7 +7,7 @@
     Onzer
 </h1>
 
-<h4 align="center">Fausse plateforme musicale qui permet de répertorier des musiques et des playlists</h4>
+<h4 align="center">Plateforme musicale factice qui permet de répertorier des musiques et des playlists</h4>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Non%20maintenu-f77f00" alt="Maintenance">
@@ -17,8 +17,7 @@
   <a href="#✨-roadmap">Roadmap</a> •
   <a href="#🛠️-participer-au-développement">Participer</a> •
   <a href="#🕹️-technologies-utilisées">Technologies</a> •
-  <a href="#👋-nous-contacter">Contact</a> •
-  <a href="#🫶-soutenir-l'association">Soutenir</a> •
+  <a href="#👋-me-contacter">Contact</a> •
   <a href="#🤠-crédits">Crédit</a> •
   <a href="#©-licence">Licence</a> •
 </p>
